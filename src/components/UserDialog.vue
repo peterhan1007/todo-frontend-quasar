@@ -77,6 +77,7 @@ import { useQuasar } from 'quasar';
 import { defineComponent, ref, watch } from 'vue';
 
 import { UPDATE_USER_MUTATION } from 'src/apollo/graphql';
+
 export default defineComponent({
   props: {
     isModal: {
@@ -108,7 +109,7 @@ export default defineComponent({
             email: email.value,
             password: 'password',
           },
-        }).then((res) => {
+        }).then(() => {
           $q.notify({
             color: 'blue-10',
             textColor: 'white',

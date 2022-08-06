@@ -30,9 +30,9 @@
 
 <script>
 import { useQuery } from '@vue/apollo-composable';
-import { useQuasar } from 'quasar';
 import { GET_USERS_QUERY } from 'src/apollo/graphql';
 import { computed, ref } from 'vue';
+
 import UserDialog from './UserDialog.vue';
 
 const columns = [
@@ -73,7 +73,6 @@ const columns = [
 export default {
   name: 'UserListPage',
   setup() {
-    const $q = useQuasar();
     const { result } = useQuery(GET_USERS_QUERY);
     const isModal = ref(false);
     const modal = ref({ bar2: false });

@@ -22,7 +22,6 @@ function getHeaders() {
   return headers;
 }
 
-// Create an http link:
 const httpLink = new HttpLink({
   uri: 'http://localhost:3000/graphql',
   fetch: (uri: RequestInfo, options: RequestInit) => {
@@ -52,7 +51,7 @@ const omitTypenameLink = new ApolloLink((operation, forward) => {
 });
 
 const link = ApolloLink.from([omitTypenameLink, httpLink]);
-// Create the apollo client
+
 export const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   connectToDevTools: true,

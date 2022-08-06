@@ -102,7 +102,7 @@ import { DefaultApolloClient, useMutation } from '@vue/apollo-composable';
 import { useQuasar } from 'quasar';
 import { apolloClient } from 'src/apollo/apollo-client';
 import { CREATE_USER_MUTATION } from 'src/apollo/graphql';
-import { getCurrentInstance, provide, ref } from 'vue';
+import { provide, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 export default {
@@ -110,7 +110,6 @@ export default {
   setup() {
     provide(DefaultApolloClient, apolloClient);
     const $q = useQuasar();
-    const app = getCurrentInstance();
     const name = ref(null);
     const password = ref(null);
     const email = ref(null);
@@ -143,7 +142,7 @@ export default {
           email: email.value,
           title: title.value,
           description: description.value,
-        }).then((res) => {
+        }).then(() => {
           $q.notify({
             color: 'blue-10',
             textColor: 'white',
